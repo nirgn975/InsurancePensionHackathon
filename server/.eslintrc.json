@@ -19,6 +19,7 @@
     "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.spec.js"]}],
     "func-names": ["error", "never"],
     "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"],
-    "no-loop-func": 0
+    "no-loop-func": 0,
+    "prefer-destructuring": ["error", {"object": false, "array": true}]
   }
 }
