@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "iph",
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "iph-theme.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
