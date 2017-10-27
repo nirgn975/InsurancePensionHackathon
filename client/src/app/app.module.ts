@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatFormFieldModule,
@@ -34,6 +34,7 @@ import { LoginGuard } from './login/login.guard';
     MatInputModule,
     MatIconModule,
     AppRoutingModule,
+    FormsModule
   ],
   providers: [
     LoginGuard,
