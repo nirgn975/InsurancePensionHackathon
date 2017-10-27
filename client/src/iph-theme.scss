@@ -1,0 +1,77 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$md-iphOffWhite: (
+    50 : #e8e8e7,
+    100 : #c5c5c4,
+    200 : #9f9e9c,
+    300 : #787774,
+    400 : #5b5a57,
+    500 : #EFE9E4,
+    600 : #383733,
+    700 : #302f2c,
+    800 : #282724,
+    900 : #1b1a17,
+    A100 : #f8c96a,
+    A200 : #f6b73a,
+    A400 : #fca800,
+    A700 : #e39700,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #0F0F0F,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-iphacqua: (
+    50 : #f6f8f7,
+    100 : #e8ecec,
+    200 : #d9e0df,
+    300 : #c9d4d2,
+    400 : #becac8,
+    500 : #114253,
+    600 : #abbbb8,
+    700 : #a2b3af,
+    800 : #99aba7,
+    900 : #8a9e99,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ccfff3,
+    A700 : #b2ffee,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #BBC2C5,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$iphgusto-app-primary: mat-palette($md-iphOffWhite);
+$iphgusto-app-accent: mat-palette($md-iphacqua);
+
+$iphgusto-app-warn: mat-palette($mat-red);
+
+$iphgusto-app-theme: mat-light-theme($iphgusto-app-primary, $iphgusto-app-accent, $iphgusto-app-warn);
+@include angular-material-theme($iphgusto-app-theme);

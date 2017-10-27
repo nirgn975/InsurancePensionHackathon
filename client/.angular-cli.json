@@ -17,9 +17,10 @@
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
+      "prefix": "iph",
       "styles": [
-        "styles.css"
+        "styles.scss",
+        "iph-theme.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -54,7 +55,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "class": {
       "spec": false
     },
