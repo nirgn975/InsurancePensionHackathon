@@ -1,4 +1,5 @@
 @import 'src/assets/colors.scss';
+
 :host(iph-login) {
   display: flex;
   align-items: center;
@@ -11,9 +12,11 @@
     background-color: $iph-offWhite;
     width: 35%;
     padding: 20px 40px;
+    text-align: center;
 
     h2 {
       color: $iph-acqua;
+      margin-bottom: 30px;
     }
 
     mat-form-field {
@@ -24,6 +27,25 @@
 
     button {
       margin-bottom: 20px;
+    }
+
+    .registration-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      mat-icon {
+        color: $iph-grey-green;
+        margin-left: 5px;
+      }
+
+      p {
+        color: $iph-grey-green;
+
+        a {
+          color: $iph-acqua;
+        }
+      }
     }
   }
 }

@@ -8,6 +8,7 @@ import {
   MatSelectModule,
   MatInputModule,
   MatIconModule,
+  MatButtonModule,
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
