@@ -1,0 +1,29 @@
+@import 'src/assets/colors.scss';
+:host(iph-login) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .login-wrapper {
+    display: flex;
+    padding: 0 12px;
+    background-color: $iph-offWhite;
+    width: 35%;
+    padding: 20px 40px;
+
+    h2 {
+      color: $iph-acqua;
+    }
+
+    mat-form-field {
+      width: 100%;
+      margin-bottom: 20px;
+      color: $iph-darcqua;
+    }
+
+    button {
+      margin-bottom: 20px;
+    }
+  }
+}
