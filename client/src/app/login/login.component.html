@@ -1,17 +1,18 @@
 <div class="example-container">
   <mat-form-field color="accent">
-    <input matInput placeholder="Input">
+    <input matInput name="userName" [(ngModel)]="user.name" placeholder="Input">
   </mat-form-field>
 
   <mat-form-field color="accent">
-    <textarea matInput placeholder="Textarea"></textarea>
+    <textarea matInput name="description" [(ngModel)]="user.desc" placeholder="Textarea"></textarea>
   </mat-form-field>
 
   <mat-form-field color="accent">
-    <mat-select placeholder="Select">
-      <mat-option value="option">Option</mat-option>
-      <mat-option value="option">Option</mat-option>
-      <mat-option value="option">Option</mat-option>
+    <mat-select  name="gender" [(ngModel)]="user.gender" placeholder="Select">
+      <mat-option value="Male">Male</mat-option>
+      <mat-option value="Female">Female</mat-option>
     </mat-select>
   </mat-form-field>
+
+  <button (click)="submit()">Save</button>
 </div>

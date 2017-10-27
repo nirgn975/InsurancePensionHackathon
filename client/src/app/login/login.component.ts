@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../model/user';
 
 @Component({
   selector: 'iph-login',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  users: User[] = [];
+  user: User = new User("", "", "");
+  constructor() {
+
+  }
 
   ngOnInit() {
+  }
+
+  submit() {
+    console.log(this.user);
+    this.users.push(this.user);
+    console.log(this.users);
   }
 
 }
