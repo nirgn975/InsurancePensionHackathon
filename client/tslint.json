@@ -118,13 +118,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "iph",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "iph",
       "kebab-case"
     ],
     "use-input-property-decorator": true,
