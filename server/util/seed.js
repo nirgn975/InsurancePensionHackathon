@@ -1,10 +1,9 @@
-const _ = require('lodash');
 const logger = require('./logger');
 
 const User = require('../api/user/userModel');
 const dummyUsers = require('./dummyUsers');
 
-const users = dummyUsers.users;
+const [users] = dummyUsers.users;
 
 logger.log(['Seeding the Database']);
 
