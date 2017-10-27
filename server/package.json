@@ -7,7 +7,7 @@
     "start": "nodemon index.js",
     "lint": "eslint .",
     "test": "mocha './api/**/*.spec.js' --exit",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha './**/*.spec.js' --report lcovonly -- -R spec && cat ./coverage/lcov.info",
+    "coverage": "istanbul cover mocha './api/**/*.spec.js' --report lcovonly -- -R spec && cat ./coverage/lcov.info",
     "deploy": "echo \"No deployment script\" && exit 1"
   },
   "private": false,

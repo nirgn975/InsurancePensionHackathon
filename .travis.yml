@@ -44,7 +44,7 @@ script:
   - npm run e2e
   - npm run build -- --prod --aot
 
-after_script:
-  - cd ../server && npm run coverage
-  - codecov
-  - nsp check
+# after_script:
+#   - cd ../server && npm run coverage
+#   - codecov
+#   - nsp check
