@@ -42,7 +42,7 @@ script:
   - npm run lint
   - npm run test
   - npm run e2e
-  - ng build --prod --aot
+  - npm run build -- --prod --aot
 
 after_script:
   - cd ../server && npm run coverage
