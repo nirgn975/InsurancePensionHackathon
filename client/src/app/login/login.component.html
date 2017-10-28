@@ -1,14 +1,14 @@
 <div class="login-wrapper" fxLayout="column" fxLayoutAlign="center none">
   <h2>ברוך הבא לעמוד כניסה</h2>
   <mat-form-field color="accent">
-    <input matInput placeholder="תעודת זהות">
+    <input matInput #idInput placeholder="תעודת זהות">
   </mat-form-field>
 
   <mat-form-field color="accent">
-    <input matInput placeholder="סיסמה">
+    <input matInput #passwordInput placeholder="סיסמה">
   </mat-form-field>
 
-  <button mat-raised-button color="accent">התחבר</button>
+  <button mat-raised-button color="accent" (click)="validateUser(idInput.value, passwordInput.vallue)">התחבר</button>
 
   <div class="registration-wrapper">
     <mat-icon>person</mat-icon>

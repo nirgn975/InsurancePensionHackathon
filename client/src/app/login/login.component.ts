@@ -12,4 +12,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  validateUser(id, password) {
+    if (id != '' && password != '') {
+      localStorage.setItem('IphUserToken', 'someValue');
+      // this.router.navigate(['profile']);
+      return false;
+    }
+  }
+
 }
