@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@import "src/assets/colors.scss";
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $iph-darcqua;
+  font-family: 'Arimo', sans-serif;
+}
