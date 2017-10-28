@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatFormFieldModule,
   MatSelectModule,
   MatInputModule,
   MatIconModule,
+  MatButtonModule,
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +35,8 @@ import { LoginGuard } from './login/login.guard';
     MatSelectModule,
     MatInputModule,
     MatIconModule,
+    MatButtonModule,
+    FlexLayoutModule,
     AppRoutingModule,
   ],
   providers: [

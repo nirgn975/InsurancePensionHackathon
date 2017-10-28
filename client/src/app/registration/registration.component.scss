@@ -1,0 +1,49 @@
+@import 'src/assets/colors.scss';
+
+:host(iph-registration) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .registration-wrapper {
+    padding: 0 12px;
+    background-color: $iph-offWhite;
+    width: 35%;
+    padding: 20px 40px;
+    text-align: center;
+
+    h2 {
+      color: $iph-acqua;
+      margin-bottom: 30px;
+    }
+
+    mat-form-field {
+      width: 100%;
+      margin-bottom: 20px;
+      color: $iph-darcqua;
+    }
+
+    .card-info-wrapper {
+      h3 {
+        color: $iph-acqua;
+      }
+
+      .additional-info {
+        mat-form-field {
+          width: 30%;
+        }
+      }
+    }
+
+    button {
+      margin-bottom: 20px;
+    }
+
+    .login-wrapper {
+      a {
+        color: $iph-acqua;
+      }
+    }
+  }
+}
