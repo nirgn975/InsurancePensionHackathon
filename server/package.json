@@ -1,0 +1,35 @@
+{
+  "name": "insurance-pension-hackathon",
+  "version": "1.0.0",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "lint": "eslint .",
+    "test": "mocha './api/**/*.spec.js' --exit",
+    "coverage": "istanbul cover mocha './api/**/*.spec.js' --report lcovonly -- -R spec && cat ./coverage/lcov.info",
+    "deploy": "echo \"No deployment script\" && exit 1"
+  },
+  "private": false,
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "chalk": "^2.3.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.12.4",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.1",
+    "nock": "^9.0.25",
+    "nodemon": "^1.12.1",
+    "nsp": "^2.8.1"
+  }
+}
