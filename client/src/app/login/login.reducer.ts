@@ -34,6 +34,7 @@ export function reducer(state = initialState, action: login.Actions): State {
     case login.LOGIN_FAILED: {
       console.log('LOGIN_FAILED');
     }
+    return;
 
     default: {
       return state;
