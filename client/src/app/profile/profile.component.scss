@@ -1,0 +1,59 @@
+ @import 'src/assets/colors.scss';
+
+.profile-wrapper {
+  .wip-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(25, 52, 65, .5);
+
+    .message {
+      position: absolute;
+      top: 35%;
+      width: 100%;
+      color: $iph-offWhite;
+      text-align: center;
+
+      h1 {
+        font-size: 36px;
+        letter-spacing: 3px;
+      }
+
+      p {
+        font-size: 24px;
+
+        a{
+          color: $iph-grey-green;
+        }
+      }
+    }
+
+    video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -100;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+}
+
+// span {
+//   padding: 1rem;
+//   margin: 0 0 0.5rem 0;
+//   display: block;
+//   background: repeating-linear-gradient(
+//   to right,
+//   $iph-cream,
+//   $iph-cream 10px,
+//   $iph-darcqua 10px,
+//   $iph-darcqua 20px
+//   );
+//   transform: rotate(20deg);
+// }
