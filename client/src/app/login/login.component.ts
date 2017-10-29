@@ -15,8 +15,6 @@ export class LoginComponent implements OnInit {
   validateUser(id, password) {
     if (id !== '' && password !== '') {
       localStorage.setItem('IphUserToken', 'someValue');
-      // this.router.navigate(['profile']);
-      return false;
     }
   }
 
