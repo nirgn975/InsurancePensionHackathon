@@ -1,6 +1,9 @@
  @import 'src/assets/colors.scss';
 
 .profile-wrapper {
+  height: 100%;
+  background: $iph-offWhite;
+  
   .wip-wrapper {
     position: absolute;
     top: 0;
