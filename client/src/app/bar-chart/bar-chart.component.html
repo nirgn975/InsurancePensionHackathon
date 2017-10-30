@@ -1,4 +1,4 @@
-<mat-tab-group fxLayout="column" fxLayoutAlign="space-around stretch">
+<mat-tab-group fxLayout="column" fxLayoutAlign="space-around stretch" (selectedIndexChange)="countChange($event)">
   <mat-tab label="ממשלתי">
     <iph-chart></iph-chart>
   </mat-tab>

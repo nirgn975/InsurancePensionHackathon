@@ -12,4 +12,8 @@ export class BarChartComponent implements OnInit {
   ngOnInit() {
   }
 
+  countChange(event) {
+    console.log(event);
+  }
+
 }
