@@ -1,14 +1,17 @@
 <div class="login-wrapper" fxLayout="column" fxLayoutAlign="center none">
   <h2>ברוך הבא לעמוד כניסה</h2>
-  <mat-form-field color="accent">
-    <input matInput placeholder="תעודת זהות">
-  </mat-form-field>
 
-  <mat-form-field color="accent">
-    <input matInput placeholder="סיסמה">
-  </mat-form-field>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field color="accent">
+      <input matInput formControlName="id" (keyup)="checkError($event)" placeholder="תעודת זהות">
+    </mat-form-field>
 
-  <button mat-raised-button color="accent">התחבר</button>
+    <mat-form-field color="accent">
+      <input matInput formControlName="password" (keyup)="checkError($event)" placeholder="סיסמה" type="password">
+    </mat-form-field>
+
+    <button mat-raised-button color="accent">התחבר</button>
+  </form>
 
   <div class="registration-wrapper">
     <mat-icon>person</mat-icon>
