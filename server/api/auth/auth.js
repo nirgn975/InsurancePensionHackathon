@@ -80,6 +80,7 @@ exports.signToken = (id) => {
   return jwt.sign(
     { _id: id },
     config.secrets.jwt,
+    /* eslint comma-dangle: ["error", "always-multiline"] */
     { expiresIn: config.expireTime }
   );
 };
