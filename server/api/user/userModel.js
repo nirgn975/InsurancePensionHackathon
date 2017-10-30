@@ -33,7 +33,7 @@ UserSchema.methods = {
     return bcrypt.compareSync(password, userPassword);
   },
 
-  // hash the passwords
+  // Hash the passwords.
   encryptPassword: (plainTextPword) => {
     if (!plainTextPword) return '';
 
