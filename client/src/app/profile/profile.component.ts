@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+public haveData: Boolean = false;
+
   constructor() { }
 
   ngOnInit() {
