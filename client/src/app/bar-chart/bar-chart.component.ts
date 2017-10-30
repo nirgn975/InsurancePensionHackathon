@@ -10,7 +10,8 @@ export class BarChartComponent implements OnInit {
     0: '',
     1: '',
     2: '',
-  }
+  };
+  
   constructor() { }
 
   ngOnInit() {
