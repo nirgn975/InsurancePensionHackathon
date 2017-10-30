@@ -1,6 +1,6 @@
 const users = [
-  { id: '200979136', token: '123' },
-  { id: '306325564', token: '1234' },
+  { id: '200979136', password: '123' },
+  { id: '306325564', password: '1234' },
 ];
 
 exports.users = users;
