@@ -12,10 +12,13 @@
   },
   "private": false,
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "chalk": "^2.3.0",
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "express-jwt": "^5.3.0",
+    "jsonwebtoken": "^8.1.0",
     "lodash": "^4.17.4",
     "mongoose": "^4.12.4",
     "morgan": "^1.9.0"
