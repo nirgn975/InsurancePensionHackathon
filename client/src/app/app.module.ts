@@ -15,6 +15,7 @@ import {
   MatInputModule,
   MatIconModule,
   MatButtonModule,
+  MatTabsModule,
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +35,7 @@ import { ProfileGuard } from './profile/profile.guard';
 import { LoginGuard } from './login/login.guard';
 
 import { environment } from '../environments/environment';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { environment } from '../environments/environment';
     LoginComponent,
     RegistrationComponent,
     ProfileComponent,
+    BarChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,7 @@ import { environment } from '../environments/environment';
     MatButtonModule,
     FlexLayoutModule,
     AppRoutingModule,
+    MatTabsModule,
   ],
   providers: [
     LoginService,
