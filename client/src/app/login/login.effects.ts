@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Effect, Actions, toPayload } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 import { LoginService } from './login.service';
 import * as login from './login.action';

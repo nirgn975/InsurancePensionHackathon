@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { Login, LoginResponse } from './login.model';
 
@@ -14,7 +16,7 @@ export class LoginService {
   ) { }
 
   login(loginData: Login): Observable<LoginResponse> {
-    return this.http.post(`${environment.backend}/api/user/signin`, loginData)
+    return this.http.post(`${environment.backend}/api/auth/signin`, loginData)
       .map(res => res.json())
       .catch(this.handleError);
   }

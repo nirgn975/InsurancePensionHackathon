@@ -1,15 +1,10 @@
-import { Login } from './login.model';
+import { LoginResponse } from './login.model';
 import * as login from './login.action';
 
-export interface State {
-  login: Login;
-}
+export type State = LoginResponse;
 
 const initialState: State = {
-  login: {
-    id: '',
-    password: '',
-  },
+  token: '',
 };
 
 export function reducer(state = initialState, action: login.Actions): State {
@@ -19,13 +14,9 @@ export function reducer(state = initialState, action: login.Actions): State {
     }
 
     case login.LOGIN_SUCCESS: {
-      localStorage.setItem('IphUserToken', action.payload.password);
+      localStorage.setItem('IphUserToken', action.payload.token);
       const newLogin = {
-        login:  {
-          _id: action.payload._id,
-          id: action.payload.id,
-          password: action.payload.password,
-        }
+        token: action.payload.token
       };
 
       return Object.assign({}, state, newLogin);
@@ -33,6 +24,7 @@ export function reducer(state = initialState, action: login.Actions): State {
 
     case login.LOGIN_FAILED: {
       console.log('LOGIN_FAILED');
+      break;
     }
 
     default: {

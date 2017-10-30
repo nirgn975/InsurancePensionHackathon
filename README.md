@@ -40,12 +40,13 @@ Something about the project.
 
 **Client**
 
-  * Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-  * Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+  * Run `npm run lint` to check for ESLint mistakes.
+  * Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  * Run `npm run e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 **Server**
 
-  * Run `npm run eslint` to check for ESLint mistakes.
+  * Run `npm run lint` to check for ESLint mistakes.
   * Run `npm test` to run the integration tests.
 
 ## Translation

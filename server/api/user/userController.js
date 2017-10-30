@@ -1,59 +1,81 @@
 const User = require('./userModel');
 const _ = require('lodash');
-const logger = require('../../util/logger');
+const signToken = require('../auth/auth').signToken;
 
-exports.getByToken = (req, res, next) => {
-  User.findOne({ token: req.headers.token })
+exports.params = (req, res, next, id) => {
+  User.findById(id)
+    .exec()
     .then((user) => {
-      req.user = user;
-      next();
+      if (!user) {
+        next(new Error('No user with that id'));
+      } else {
+        req.user = user;
+        next();
+      }
     }, (error) => {
       res.json(error);
     });
 };
 
-exports.post = (req, res) => {
-  const newuser = req.body;
-
-  User.create(newuser)
-    .then((savedUser) => {
-      res.json({
-        _message: 'User successfully created!',
-        user: savedUser,
-      });
-    }, (error) => {
-      logger.error([error]);
-      res.json(error);
-    });
-};
-
-exports.getOwn = (req, res) => {
-  User.findOne({ token: req.headers.token })
-    .then((user) => {
-      res.json(user);
+exports.get = (req, res, next) => {
+  User.find({})
+    .exec()
+    .then((users) => {
+      res.json(users.map((user) => {
+        return user.toJson();
+      }));
     }, (error) => {
       res.json(error);
     });
 };
 
-exports.put = (req, res) => {
+exports.getOne = (req, res, next) => {
+  const user = req.user.toJson();
+  res.json(user.toJson());
+};
+
+exports.put = (req, res, next) => {
+  const user = req.user;
   const update = req.body;
 
-  User.findOne({ token: req.headers.token })
-    .then((user) => {
-      _.merge(user, update);
+  _.merge(user, update);
 
-      user.save((error, saved) => {
-        if (error) {
-          res.json(error);
-        } else {
-          res.json({
-            _message: 'User successfully updated!',
-            user: saved,
-          });
-        }
-      });
-    }, (error) => {
+  user.save((error, saved) => {
+    if (error) {
       res.json(error);
-    });
+    } else {
+      res.json({
+        _message: 'User successfully updated!',
+        user: saved.toJson(),
+      });
+    }
+  });
+};
+
+exports.post = (req, res, next) => {
+  const newUser = new User(req.body);
+
+  newUser.save((error, user) => {
+    if (error) return res.json(error);
+
+    const token = signToken(user._id);
+    res.json({ token });
+  });
+};
+
+exports.delete = (req, res, next) => {
+  req.user.remove((error, removed) => {
+    if (error) {
+      res.json(error);
+    } else {
+      res.json({
+        _message: 'User successfully deleted!',
+        user: removed.toJson(),
+      });
+    }
+  });
+};
+
+exports.me = (req, res) => {
+  res.json(req.user.toJson());
 };

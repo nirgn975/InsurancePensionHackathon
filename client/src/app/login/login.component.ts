@@ -63,7 +63,9 @@ export class LoginComponent implements DoCheck {
   ngDoCheck() {
     this.store.select(fromRoot.getLoginState).subscribe(
       res => {
-        if (res.login.password) this.router.navigate(['profile']);
+        if (res.token) {
+          this.router.navigate(['profile']);
+        }
       }
     );
   }

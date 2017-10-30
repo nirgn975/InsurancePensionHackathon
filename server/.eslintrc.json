@@ -20,6 +20,7 @@
     "func-names": ["error", "never"],
     "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"],
     "no-loop-func": 0,
-    "prefer-destructuring": ["error", {"object": false, "array": true}]
+    "prefer-destructuring": ["error", {"object": false, "array": true}],
+    "object-shorthand": ["error", "consistent-as-needed"]
   }
 }

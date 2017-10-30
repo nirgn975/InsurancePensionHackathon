@@ -4,6 +4,8 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const mongoose = require('mongoose');
 const chalk = require('chalk');
+const _ = require('lodash');
+
 const server = require('../../server');
 
 const should = chai.should();
@@ -11,9 +13,9 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 describe(chalk.blue('User'), () => {
-  let user = {
+  const user = {
     id: '200979136',
-    token: '123',
+    password: '123',
   };
 
   before((done) => {
@@ -31,10 +33,8 @@ describe(chalk.blue('User'), () => {
       .send(user)
       .end((error, res) => {
         res.should.have.status(200);
-        res.body.should.have.property('_message').equal('User successfully created!');
-        res.body.user.should.have.property('_id');
-        res.body.user.should.have.property('id');
-        res.body.user.should.have.property('token');
+        res.body.should.have.property('token');
+        user.token = res.body.token;
         done();
       });
   });
@@ -42,15 +42,14 @@ describe(chalk.blue('User'), () => {
   it('should GET user info', (done) => {
     chai.request(server)
       .get('/api/user/me')
-      .set('token', user.token)
+      .set('access_token', user.token)
       .end((error, res) => {
         res.should.have.status(200);
         res.body.should.have.property('_id');
         res.body.should.have.property('id').equal(user.id);
-        res.body.should.have.property('token').equal(user.token);
 
         // Save the user info
-        user = res.body;
+        _.merge(user, res.body);
         done();
       });
   });
@@ -59,13 +58,14 @@ describe(chalk.blue('User'), () => {
     user.id = '200979135';
 
     chai.request(server)
-      .put('/api/user/')
-      .set('token', user.token)
+      .put(`/api/user/${user._id}`)
+      .set('access_token', user.token)
       .send(user)
       .end((error, res) => {
         res.should.have.status(200);
         res.body.should.have.property('_message').equal('User successfully updated!');
-        res.body.user.should.be.eql(user);
+        res.body.user.should.have.property('_id').equal(user._id);
+        res.body.user.should.have.property('id').equal(user.id);
         done();
       });
   });
