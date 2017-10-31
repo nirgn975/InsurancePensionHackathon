@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'iph-bar-chart',
-  templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.scss']
+  selector: 'iph-tabs',
+  templateUrl: './tabs.component.html',
+  styleUrls: ['./tabs.component.scss']
 })
-export class BarChartComponent implements OnInit {
+export class TabsComponent implements OnInit {
   tabsIndex = {
-    0: '',
-    1: '',
-    2: ''
+    0: 'ממשלתי',
+    1: 'מניות',
+    2: 'אג״ח'
   };
 
   constructor() { }
@@ -17,9 +17,8 @@ export class BarChartComponent implements OnInit {
   ngOnInit() {
   }
 
-  countChange(event) {
+  getChart(event) {
     // Dispatche (action) -> effect -> service -> action -> reducer -> store
     console.log(this.tabsIndex[event]);
   }
-
 }

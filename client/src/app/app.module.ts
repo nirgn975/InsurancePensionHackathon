@@ -35,8 +35,8 @@ import { ProfileGuard } from './profile/profile.guard';
 import { LoginGuard } from './login/login.guard';
 
 import { environment } from '../environments/environment';
-import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { ChartComponent } from './chart/chart.component';
+import { TabsComponent } from './tabs/tabs.component';
 
 @NgModule({
   declarations: [
@@ -44,8 +44,8 @@ import { ChartComponent } from './chart/chart.component';
     LoginComponent,
     RegistrationComponent,
     ProfileComponent,
-    BarChartComponent,
     ChartComponent,
+    TabsComponent,
   ],
   imports: [
     BrowserModule,
