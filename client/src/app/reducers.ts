@@ -32,7 +32,7 @@ export interface State {
  */
 export const reducers: ActionReducerMap<State> = {
   login: fromLogin.reducer,
-  chart: fromTab.reducer,
+  chart: chartFromTab.reducer,
 };
 
 /**

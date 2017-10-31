@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import * as fromRoot from '../reducers';
+import * as tabsAction from './tabs.action';
 
 @Component({
   selector: 'iph-tabs',
@@ -12,13 +16,14 @@ export class TabsComponent implements OnInit {
     2: 'אג״ח'
   };
 
-  constructor() { }
+  constructor(
+    private store: Store<fromRoot.State>,
+  ) { }
 
   ngOnInit() {
   }
 
   getChart(event) {
-    // Dispatche (action) -> effect -> service -> action -> reducer -> store
-    console.log(this.tabsIndex[event]);
+    this.store.dispatch(new tabsAction.TabsAction(this.tabsIndex[event]));
   }
 }

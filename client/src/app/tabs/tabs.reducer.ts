@@ -19,16 +19,11 @@ export function reducer(state = initialState, action: tabs.Actions): State {
     }
 
     case tabs.TABS_SUCCESS: {
-      localStorage.setItem('IphUserToken', action.payload.token);
-      const newLogin = {
-        token: action.payload.token
-      };
-
-      return Object.assign({}, state, newLogin);
+      return action.payload;
     }
 
-    case login.LOGIN_FAILED: {
-      console.log('LOGIN_FAILED');
+    case tabs.TABS_FAILED: {
+      console.log('TABS_FAILED');
       break;
     }
 
