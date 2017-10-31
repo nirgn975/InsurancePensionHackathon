@@ -28,8 +28,10 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import { LoginService } from './login/login.service';
+import { TabsService } from './tabs/tabs.service';
 
 import { LoginEffects } from './login/login.effects';
+import { TabsEffects } from './tabs/tabs.effects';
 
 import { ProfileGuard } from './profile/profile.guard';
 import { LoginGuard } from './login/login.guard';
@@ -56,6 +58,7 @@ import { TabsComponent } from './tabs/tabs.component';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([
       LoginEffects,
+      TabsEffects,
     ]),
     BrowserAnimationsModule,
     MatFormFieldModule,
@@ -71,6 +74,7 @@ import { TabsComponent } from './tabs/tabs.component';
     LoginService,
     LoginGuard,
     ProfileGuard,
+    TabsService
   ],
   bootstrap: [AppComponent]
 })
