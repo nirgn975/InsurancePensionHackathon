@@ -9,9 +9,9 @@ export class BarChartComponent implements OnInit {
   tabsIndex = {
     0: '',
     1: '',
-    2: '',
+    2: ''
   };
-  
+
   constructor() { }
 
   ngOnInit() {
