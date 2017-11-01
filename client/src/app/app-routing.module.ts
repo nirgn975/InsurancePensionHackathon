@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ChartComponent } from './chart/chart.component';
 
 import { LoginGuard } from './login/login.guard';
 import { ProfileGuard } from './profile/profile.guard';
@@ -24,6 +25,9 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [ProfileGuard],
+    children: [
+      { path: ':category', component: ChartComponent, },
+    ],
   },
 ];
 

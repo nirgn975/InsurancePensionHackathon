@@ -1,5 +1,5 @@
 <div class="profile-wrapper">
-  <div class="wip-wrapper">
+  <div *ngIf="!haveData;else show_data" class="wip-wrapper">
     <div class="message">
       <h1>אנחנו עובדים במרץ, נותרו רק עוד 3 ימים לחכות!</h1>
       <p>בינתיים אתה יכול להכין חמוצים הנה
@@ -12,4 +12,8 @@
       <source src="/assets/waiting.mp4" type="video/mp4">
     </video>
   </div>
+
+  <ng-template #show_data>
+    <iph-tabs></iph-tabs>
+  </ng-template>
 </div>
