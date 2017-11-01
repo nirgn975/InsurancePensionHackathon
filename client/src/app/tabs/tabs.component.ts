@@ -10,7 +10,4 @@ export class TabsComponent {
 
   constructor() { }
 
-  getChart(event) {
-    console.log(this.tabsIndex[event]);
-  }
 }

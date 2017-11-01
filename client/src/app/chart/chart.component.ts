@@ -1,16 +1,17 @@
-import { Component, OnInit, DoCheck, AfterViewInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as d3 from 'd3';
 
 import * as fromRoot from '../reducers';
+import * as chartAction from './chart.action';
 
 @Component({
   selector: 'iph-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss']
 })
-export class ChartComponent implements OnInit, DoCheck, AfterViewInit {
+export class ChartComponent implements OnInit, DoCheck {
   private series;
   private svg;
   private margin;
@@ -20,21 +21,16 @@ export class ChartComponent implements OnInit, DoCheck, AfterViewInit {
   private y;
   private z;
   private category: String;
-  private data = [
-    {month: 12016, max: 3840, min: -400},
-    {month: 22016, max: 1600, min: -400},
-    {month: 32016, max:  640, min: -600},
-    {month: 42016, max:  320, min: -400}
-  ];
+  private data: any;
 
   constructor(
-    private store: Store<fromRoot.State>,
     private route: ActivatedRoute,
+    private store: Store<fromRoot.State>,
   ) { }
 
   ngOnInit() {
     const newCategory = this.route.snapshot.params['category'];
-    this.category = newCategory;
+    this.plotNewChart(newCategory);
   }
 
   ngDoCheck() {
@@ -42,23 +38,21 @@ export class ChartComponent implements OnInit, DoCheck, AfterViewInit {
 
     // Check if the category has changed.
     if (this.category !== newCategory) {
-      this.category = newCategory;
-      this.data = [
-        {month: 52016, max: 40, min: -0},
-        {month: 62016, max: 16000, min: -4000},
-        {month: 72016, max:  40, min: -800},
-        {month: 82016, max:  20, min: -40}
-      ];
-
-      d3.selectAll('g').remove();
-      this.preInitChart();
-      this.initChart();
+      this.plotNewChart(newCategory);
     }
   }
 
-  ngAfterViewInit() {
-    this.preInitChart();
-    this.initChart();
+  private plotNewChart(newCategory) {
+    this.category = newCategory;
+    this.store.dispatch(new chartAction.ChartAction(this.category));
+    this.store.select(fromRoot.getChartState).subscribe(
+      res => {
+        this.data = res;
+        d3.selectAll('g').remove();
+        this.preInitChart();
+        this.initChart();
+      }
+    );
   }
 
   private preInitChart() {

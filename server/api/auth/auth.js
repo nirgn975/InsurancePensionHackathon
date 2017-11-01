@@ -65,7 +65,7 @@ exports.verifyUser = () => {
           return;
         }
 
-        // f everything is good, then attach to req.user and call next so the controller
+        // Everything is good, then attach to req.user and call next so the controller
         // can sign a token from the req.user._id
         req.user = user;
         next();
@@ -75,12 +75,7 @@ exports.verifyUser = () => {
   };
 };
 
-// util method to sign tokens on signup
+// Util method to sign tokens on signup
 exports.signToken = (id) => {
-  return jwt.sign(
-    { _id: id },
-    config.secrets.jwt,
-    /* eslint comma-dangle: ["error", "always-multiline"] */
-    { expiresIn: config.expireTime }
-  );
+  return jwt.sign({ _id: id }, config.secrets.jwt, { expiresIn: config.expireTime });
 };
