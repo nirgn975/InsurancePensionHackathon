@@ -1,0 +1,11 @@
+<nav mat-tab-nav-bar color="accecnt" fxLayout="column" fxLayoutAlign="space-around stretch">
+  <a mat-tab-link
+    *ngFor="let tabName of tabsIndex"
+    [routerLink]="tabName"
+    routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">
+    {{tabName}}
+  </a>
+</nav>
+
+<router-outlet></router-outlet>
