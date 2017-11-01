@@ -67,7 +67,7 @@ export class ChartComponent implements OnInit, DoCheck {
     this.height = this.svg.attr('height');
 
     this.x = d3.scaleBand()
-      .domain(this.data.map((d) => { return String(d.month); }))
+      .domain(this.data.map((d) => String(d.month)))
       .rangeRound([this.margin.left, this.width - this.margin.right])
       .padding(0.1);
 
@@ -85,14 +85,14 @@ export class ChartComponent implements OnInit, DoCheck {
       .selectAll('g')
       .data(this.series)
       .enter().append('g')
-        .attr('fill', (d) => { return this.z(d.key); })
+        .attr('fill', (d) => this.z(d.key))
       .selectAll('rect')
-      .data((d) => { return d; })
+      .data((d) => d)
       .enter().append('rect')
         .attr('width', this.x.bandwidth)
-        .attr('x', (d) => { return this.x(d.data.month); })
-        .attr('y', (d) => { return this.y(d[1]); })
-        .attr('height', (d) => { return this.y(d[0]) - this.y(d[1]); })
+        .attr('x', (d) => this.x(d.data.month))
+        .attr('y', (d) => this.y(d[1]))
+        .attr('height', (d) => (this.y(d[0]) - this.y(d[1])));
 
     this.svg.append('g')
       .attr('transform', `translate(0, ${this.y(0)})`)
@@ -104,10 +104,10 @@ export class ChartComponent implements OnInit, DoCheck {
   }
 
   stackMin(serie) {
-    return d3.min(serie, (d) => { return d[0]; });
+    return d3.min(serie, (d) => d[0]);
   }
 
   stackMax(serie) {
-    return d3.max(serie, (d) => { return d[1]; });
+    return d3.max(serie, (d) => d[1]);
   }
 }
