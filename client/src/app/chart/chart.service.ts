@@ -15,7 +15,7 @@ export class ChartService {
     private http: Http,
   ) { }
 
-  getChart(chartName: String): Observable<Chart> {
+  getChart(chartName: String): Observable<Chart[]> {
     return this.http.get('assets/data/chart.json')
       .map(res => res.json())
       .catch(this.handleError);

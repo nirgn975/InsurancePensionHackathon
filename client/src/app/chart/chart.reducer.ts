@@ -1,13 +1,13 @@
 import { Chart } from './chart.model';
 import * as chart from './chart.action';
 
-export type State = Chart;
+export type State = Chart[];
 
-const initialState: State = {
-  month: '',
+const initialState: State = [{
+  month: 0,
   min: 0,
   max: 0,
-};
+}];
 
 export function reducer(state = initialState, action: chart.Actions): State {
   switch (action.type) {

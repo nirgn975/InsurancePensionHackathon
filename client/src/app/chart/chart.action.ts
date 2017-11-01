@@ -14,7 +14,7 @@ export class ChartAction implements Action {
 export class ChartSuccessAction implements Action {
   readonly type = CHART_SUCCESS;
 
-  constructor(public payload: Chart) { }
+  constructor(public payload: Chart[]) { }
 }
 
 export class ChartActionFailed implements Action {
