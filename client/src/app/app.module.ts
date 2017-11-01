@@ -30,10 +30,10 @@ import { ChartComponent } from './chart/chart.component';
 import { TabsComponent } from './tabs/tabs.component';
 
 import { LoginService } from './login/login.service';
-import { TabsService } from './tabs/tabs.service';
+import { ChartService } from './chart/chart.service';
 
 import { LoginEffects } from './login/login.effects';
-import { TabsEffects } from './tabs/tabs.effects';
+import { ChartEffects } from './chart/chart.effects';
 
 import { ProfileGuard } from './profile/profile.guard';
 import { LoginGuard } from './login/login.guard';
@@ -59,7 +59,7 @@ import { environment } from '../environments/environment';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([
       LoginEffects,
-      TabsEffects,
+      ChartEffects,
     ]),
     BrowserAnimationsModule,
     FlexLayoutModule,
@@ -74,7 +74,7 @@ import { environment } from '../environments/environment';
     LoginGuard,
     ProfileGuard,
     LoginService,
-    TabsService,
+    ChartService,
   ],
   bootstrap: [AppComponent]
 })

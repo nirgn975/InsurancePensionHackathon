@@ -4,12 +4,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { Chart } from '../chart/chart.model';
+import { Chart } from './chart.model';
 
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class TabsService {
+export class ChartService {
 
   constructor(
     private http: Http,

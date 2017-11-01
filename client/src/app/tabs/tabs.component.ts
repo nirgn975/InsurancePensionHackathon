@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-
-import * as fromRoot from '../reducers';
-import * as tabsAction from './tabs.action';
 
 @Component({
   selector: 'iph-tabs',
@@ -12,11 +8,6 @@ import * as tabsAction from './tabs.action';
 export class TabsComponent {
   tabsIndex = ['ממשלתי', 'מניות', 'אג״ח'];
 
-  constructor(
-    private store: Store<fromRoot.State>,
-  ) { }
+  constructor() { }
 
-  getChart(event) {
-    this.store.dispatch(new tabsAction.TabsAction(this.tabsIndex[event]));
-  }
 }
