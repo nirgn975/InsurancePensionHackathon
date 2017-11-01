@@ -1,5 +1,5 @@
 export interface Chart {
-  month: String;
+  month: Number;
   min: Number;
   max: Number;
 }
