@@ -14,10 +14,6 @@ mat-tab-group {
       &:nth-child(1) {
         background: rgba(209, 219, 189, .2);
 
-        // &:focus {
-        //   background: $iph-cream;
-        // }
-
         &.mat-tab-label-active {
           background: $iph-cream;
         }
@@ -25,10 +21,6 @@ mat-tab-group {
 
       &:nth-child(2) {
         background: rgba(145, 170, 157, .2);
-
-        // &:focus {
-        //   background: $iph-grey-green;
-        // }
 
         &.mat-tab-label-active {
           background: $iph-grey-green;
@@ -38,9 +30,6 @@ mat-tab-group {
       &:nth-child(3) {
         background: rgba(62, 96, 111, .2);
 
-        // &:focus {
-        //   background: rgba(62, 96, 111, .8);
-        // }
         &.mat-tab-label-active {
           background: $iph-acqua;
         }

@@ -1,7 +1,11 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MatTabsModule } from '@angular/material';
+import { StoreModule } from '@ngrx/store';
 
 import { TabsComponent } from './tabs.component';
+import { reducers } from '../reducers';
 
 describe('TabsComponent', () => {
   let component: TabsComponent;
@@ -9,6 +13,11 @@ describe('TabsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        StoreModule.forRoot(reducers),
+        MatTabsModule,
+      ],
       declarations: [ TabsComponent ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })

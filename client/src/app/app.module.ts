@@ -26,6 +26,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ChartComponent } from './chart/chart.component';
+import { TabsComponent } from './tabs/tabs.component';
 
 import { LoginService } from './login/login.service';
 import { TabsService } from './tabs/tabs.service';
@@ -37,8 +39,6 @@ import { ProfileGuard } from './profile/profile.guard';
 import { LoginGuard } from './login/login.guard';
 
 import { environment } from '../environments/environment';
-import { ChartComponent } from './chart/chart.component';
-import { TabsComponent } from './tabs/tabs.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +54,7 @@ import { TabsComponent } from './tabs/tabs.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    AppRoutingModule,
     StoreModule.forRoot(reducers),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([
@@ -61,20 +62,19 @@ import { TabsComponent } from './tabs/tabs.component';
       TabsEffects,
     ]),
     BrowserAnimationsModule,
+    FlexLayoutModule,
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    FlexLayoutModule,
-    AppRoutingModule,
     MatTabsModule,
   ],
   providers: [
-    LoginService,
     LoginGuard,
     ProfileGuard,
-    TabsService
+    LoginService,
+    TabsService,
   ],
   bootstrap: [AppComponent]
 })
