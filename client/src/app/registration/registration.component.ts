@@ -12,7 +12,7 @@ export class RegistrationComponent implements OnInit {
 
   months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
   years = ['2017', '2018', '2019', '2020', '2021', '2022'];
-  loginForm: FormGroup;
+  registrationForm: FormGroup;
   idControl;
   passwordControl;
   passwordConfirmationControl;
@@ -33,7 +33,7 @@ export class RegistrationComponent implements OnInit {
     private formBuilder: FormBuilder,
 
   ) {
-    this.loginForm = this.formBuilder.group({
+    this.registrationForm = this.formBuilder.group({
       id: this.formBuilder.control(null, [Validators.minLength(2), Validators.required]),
       password: this.formBuilder.control(null, [Validators.minLength(2), Validators.required]),
       passwordConfirmation: this.formBuilder.control(null, [Validators.minLength(2), Validators.required]),
@@ -43,13 +43,13 @@ export class RegistrationComponent implements OnInit {
       expYear: this.formBuilder.control(null, [Validators.required]),
     });
 
-    this.idControl = this.loginForm.get('id');
-    this.passwordControl = this.loginForm.get('password');
-    this.passwordConfirmationControl = this.loginForm.get('passwordConfirmation');
-    this.cardNumberControl = this.loginForm.get('cardNumber');
-    this.cvvControl = this.loginForm.get('cvv');
-    this.expMonthControl = this.loginForm.get('expMonth');
-    this.expYearControl = this.loginForm.get('expYear');
+    this.idControl = this.registrationForm.get('id');
+    this.passwordControl = this.registrationForm.get('password');
+    this.passwordConfirmationControl = this.registrationForm.get('passwordConfirmation');
+    this.cardNumberControl = this.registrationForm.get('cardNumber');
+    this.cvvControl = this.registrationForm.get('cvv');
+    this.expMonthControl = this.registrationForm.get('expMonth');
+    this.expYearControl = this.registrationForm.get('expYear');
   }
 
   ngOnInit() {
@@ -60,6 +60,7 @@ export class RegistrationComponent implements OnInit {
     if (event.keyCode === 9) {
       return;
     }
+
 
     const elementName = event.target.getAttribute('formcontrolname');
     switch (elementName) {
@@ -96,13 +97,13 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit() {
     const formModel = {
-      id: this.loginForm.value.id,
-      password: this.loginForm.value.password,
-      passwordConfirmation: this.loginForm.value.passwordConfirmation,
-      cardNumber: this.loginForm.value.cardNumber,
-      cvv: this.loginForm.value.cvv,
-      expMonth: this.loginForm.value.expMonth,
-      expYear: this.loginForm.value.expYear,
+      id: this.registrationForm.value.id,
+      password: this.registrationForm.value.password,
+      passwordConfirmation: this.registrationForm.value.passwordConfirmation,
+      cardNumber: this.registrationForm.value.cardNumber,
+      cvv: this.registrationForm.value.cvv,
+      expMonth: this.registrationForm.value.expMonth,
+      expYear: this.registrationForm.value.expYear,
     } as Registration;
 
     console.log(formModel);

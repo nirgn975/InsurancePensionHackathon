@@ -4,18 +4,11 @@
   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
 
     <mat-form-field color="accent">
-      <input matInput
-      formControlName="id"
-      (keyup)="checkError($event)"
-      placeholder="תעודת זהות">
+      <input matInput formControlName="id" (keyup)="checkError($event)" placeholder="תעודת זהות">
     </mat-form-field>
 
     <mat-form-field color="accent">
-      <input matInput
-      formcontrolname="password"
-      (keyup)=checkError($event)
-      placeholder="סיסמה"
-      type="password">
+      <input matInput formcontrolname="password" (keyup)=checkError($event) placeholder="סיסמה"type="password">
     </mat-form-field>
 
     <mat-form-field color="accent">
