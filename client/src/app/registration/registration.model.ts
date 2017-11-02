@@ -1,9 +1,9 @@
 export interface Registration {
   id: string;
   password: string;
-  passwordConfirmatin: string;
+  passwordConfirmation: string;
   cardNumber: number;
-  cvvNumber: number;
+  cvv: number;
   expMonth: number;
   expYear: number;
 }
