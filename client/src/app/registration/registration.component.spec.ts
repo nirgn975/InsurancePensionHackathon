@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { RegistrationComponent } from './registration.component';
 
@@ -10,7 +11,10 @@ describe('RegistrationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule ],
+      imports: [
+        RouterTestingModule,
+        ReactiveFormsModule,
+      ],
       declarations: [ RegistrationComponent ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
