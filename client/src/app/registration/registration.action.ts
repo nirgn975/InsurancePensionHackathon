@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Registration } from './registration.model';
+import { Registration, RegistrationResponse } from './registration.model';
 
 export const REGISTRATION =  '[Registration] Registration';
 export const REGISTRATION_SUCCESS = '[Registration] Registration Success';
