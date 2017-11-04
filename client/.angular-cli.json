@@ -19,7 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "iph",
       "styles": [
-        "styles.scss",
+        "styles.css",
         "iph-theme.scss"
       ],
       "scripts": [],
@@ -56,9 +56,6 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "class": {
-      "spec": false
-    },
     "component": {}
   }
 }
