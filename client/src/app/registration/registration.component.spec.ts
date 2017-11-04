@@ -2,8 +2,10 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
 
 import { RegistrationComponent } from './registration.component';
+import { reducers } from '../reducers';
 
 describe('RegistrationComponent', () => {
   let component: RegistrationComponent;
@@ -14,6 +16,7 @@ describe('RegistrationComponent', () => {
       imports: [
         RouterTestingModule,
         ReactiveFormsModule,
+        StoreModule.forRoot(reducers),
       ],
       declarations: [ RegistrationComponent ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

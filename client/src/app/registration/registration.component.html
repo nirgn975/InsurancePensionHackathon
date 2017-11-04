@@ -40,7 +40,7 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select formControlName="expMonth" (blur)=checkError($event) placeholder="חודש">
+          <mat-select formControlName="expMonth" (blur)=checkError($event) placeholder="חודש" ngDefaultControl>
             <mat-option
               *ngFor="let month of months"
               [value]="month">
@@ -50,7 +50,7 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select formControlName="expYear" (blur)=checkError($event) placeholder="שנה">
+          <mat-select formControlName="expYear" (blur)=checkError($event) placeholder="שנה" ngDefaultControl>
             <mat-option
               *ngFor="let year of years"
               [value]="year">
