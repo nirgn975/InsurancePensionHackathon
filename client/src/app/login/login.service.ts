@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+
 
 import { Login, LoginResponse } from './login.model';
 
@@ -12,16 +11,10 @@ import { environment } from '../../environments/environment';
 export class LoginService {
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
   ) { }
 
   login(loginData: Login): Observable<LoginResponse> {
-    return this.http.post(`${environment.backend}/api/auth/signin`, loginData)
-      .map(res => res.json())
-      .catch(this.handleError);
-  }
-
-  private handleError(error: Response) {
-    return Observable.throw(error.json().error || 'Server error');
+    return this.http.post(`${environment.backend}/api/auth/signin`, loginData);
   }
 }

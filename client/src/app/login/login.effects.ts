@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Effect, Actions, toPayload } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { map } from 'rxjs/operators';
 
 import { LoginService } from './login.service';
 import * as login from './login.action';
@@ -21,6 +21,6 @@ export class LoginEffects {
     .map(toPayload)
     .switchMap(loginInfo => this.loginService.login(loginInfo)
       .map(loginData => new login.LoginSuccessAction(loginData))
-      .catch(() => Observable.of({ type: 'LOGIN_FAILED' }))
+      // .catch(() => Observable.of({ type: 'LOGIN_FAILED' }))
     );
 }
