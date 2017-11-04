@@ -1,5 +1,6 @@
 import { Store } from '@ngrx/store';
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, DoCheck } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Registration } from './registration.model';
@@ -11,7 +12,7 @@ import * as registraionAction from './registration.action';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent implements DoCheck {
 
   months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
   years = ['2017', '2018', '2019', '2020', '2021', '2022'];
@@ -36,6 +37,7 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<fromRoot.State>,
+    private router: Router,
   ) {
     this.registrationForm = this.formBuilder.group({
       id: this.formBuilder.control(null, [Validators.minLength(2), Validators.required]),
@@ -56,8 +58,6 @@ export class RegistrationComponent implements OnInit {
     this.expYearControl = this.registrationForm.get('expYear');
 
   }
-
-  ngOnInit() { }
 
   checkError(event) {
     // Check if the pressed key is tab, if so we dont want to run validation.
@@ -111,5 +111,15 @@ export class RegistrationComponent implements OnInit {
     } as Registration;
 
     this.store.dispatch(new registraionAction.RegistrationAction(formModel));
+  }
+
+  ngDoCheck() {
+    this.store.select(fromRoot.getRegistrationState).subscribe(
+      res => {
+        if (res.token) {
+          this.router.navigate(['profile']);
+        }
+      }
+    );
   }
 }
