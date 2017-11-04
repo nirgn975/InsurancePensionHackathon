@@ -16,7 +16,8 @@ export class RegistrationService {
   ) { }
 
   newUserRegistration(registrationData: Registration): Observable<RegistrationResponse> {
-    return this.http.post(`${environment.backend}/api/auth/registration`, registrationData)
+    console.log("Service is running");
+    return this.http.post(`${environment.backend}/api/user`, registrationData)
       .map(res => res.json())
       .catch(this.handleError);
   }
