@@ -7,3 +7,7 @@ export interface Registration {
   expMonth: number;
   expYear: number;
 }
+
+export interface RegistrationResponse {
+  token: string;
+}
