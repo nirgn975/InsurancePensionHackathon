@@ -4,7 +4,9 @@ import * as chart from './chart.action';
 export type State = Chart[];
 
 const initialState: State = [{
-  month: 0,
+  id: 0,
+  name: '',
+  avg: 0,
   min: 0,
   max: 0,
 }];

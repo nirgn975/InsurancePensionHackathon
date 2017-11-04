@@ -1,5 +1,7 @@
 export interface Chart {
-  month: Number;
+  id: Number;
+  name: String;
+  avg: Number;
   min: Number;
   max: Number;
 }

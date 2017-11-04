@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./tabs.component.scss']
 })
 export class TabsComponent {
-  tabsIndex = ['ממשלתי', 'מניות', 'אג״ח'];
+  tabsIndex = [
+    {url: 'bond', name: 'אג״ח'},
+    {url: 'stock', name: 'מניות'},
+    {url: 'gov', name: 'ממשלתי'},
+  ];
 
   constructor() { }
 
