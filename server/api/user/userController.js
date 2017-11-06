@@ -57,6 +57,8 @@ exports.post = (req, res, next) => {
     res.status(406).send('Passwords does not match!');
     return;
   }
+
+  req.body.dates = req.dates;
   const newUser = new User(req.body);
 
   newUser.save((error, user) => {
@@ -78,6 +80,15 @@ exports.delete = (req, res, next) => {
       });
     }
   });
+};
+
+exports.expectedDate = (req, res, next) => {
+  const TODAY = new Date();
+  req.dates = {
+    registrationDate: new Date(),
+    expectedDataDate: TODAY.setDate(TODAY.getDate() + 3),
+  };
+  next();
 };
 
 exports.me = (req, res) => {
