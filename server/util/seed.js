@@ -58,7 +58,7 @@ const createBonds = (data) => {
 };
 
 const createOpenPension = (data) => {
-  const newOpenPension = dummyOpenPension.bonds.map((line, i) => {
+  const newOpenPension = dummyOpenPension.openPension.map((line, i) => {
     return createDoc(openPension, line);
   });
 
@@ -97,12 +97,12 @@ const createStocks = (data) => {
   });
 
   return Promise.all(newStocks)
-    .then(() => [`In ${environment} mode. Seeded DB with ${dummyUsers.users.length} Users, ${dummyStocks.stocks.length} Stocks, ${dummyBonds.bonds.length} Bonds, ${dummyFunds.funds.length} Funds.`]);
+    .then(() => [`In ${environment} mode. Seeded DB with ${dummyUsers.users.length} Users, ${dummyStocks.stocks.length} Stocks, ${dummyBonds.bonds.length} Bonds, ${dummyFunds.funds.length} Funds, ${dummyOpenPension.openPension.length} Open Pension.`]);
 };
 
 cleanDB()
   .then(createUsers)
-  // .then(createOpenPension)
+  .then(createOpenPension)
   .then(createBonds)
   .then(createFunds)
   .then(createStocks)
