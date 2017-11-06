@@ -15,6 +15,7 @@ import { environment } from '../environments/environment';
 
  import * as fromLogin from './login/login.reducer';
  import * as fromChart from './chart/chart.reducer';
+ import * as fromRegistration from './registration/registration.reducer';
 
 /**
  * As mentioned, we treat each reducer like a table in a database. This means
@@ -23,6 +24,7 @@ import { environment } from '../environments/environment';
 export interface State {
   login: fromLogin.State;
   chart: fromChart.State;
+  registration: fromRegistration.State;
 }
 
 /**
@@ -33,6 +35,7 @@ export interface State {
 export const reducers: ActionReducerMap<State> = {
   login: fromLogin.reducer,
   chart: fromChart.reducer,
+  registration: fromRegistration.reducer,
 };
 
 /**
@@ -40,3 +43,4 @@ export const reducers: ActionReducerMap<State> = {
  */
 export const getLoginState = createFeatureSelector<fromLogin.State>('login');
 export const getChartState = createFeatureSelector<fromChart.State>('chart');
+export const getRegistrationState = createFeatureSelector<fromRegistration.State>('registration');

@@ -53,6 +53,10 @@ exports.put = (req, res, next) => {
 };
 
 exports.post = (req, res, next) => {
+  if (req.body.password !== req.body.passwordConfirmation) {
+    res.status(406).send('Passwords does not match!');
+    return;
+  }
   const newUser = new User(req.body);
 
   newUser.save((error, user) => {
