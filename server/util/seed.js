@@ -58,9 +58,14 @@ const createBonds = (data) => {
 const createFunds = (data) => {
   const newFunds = dummyFunds.funds.map((fund, i) => {
     // Query.
-
-    fund.user = '_asdasdasd';
-    return createDoc(Fund, fund);
+    User.find({id : fund.id})
+      .exec()
+      .then((user) => {
+          fund.user = user[0]._id;
+          return createDoc(Fund, fund);
+      }, (error) => {
+          console.log(error);
+      });
   });
 
   return Promise.all(newFunds)
@@ -76,7 +81,7 @@ const createStocks = () => {
   });
 
   return Promise.all(newStocks)
-    .then(() => [`In ${environment} mode. Seeded DB with ${dummyUsers.users.length} Users, ${dummyStocks.stocks.length} Stocks, ${dummyBonds.bonds.length} Bonds`]);
+    .then(() => [`In ${environment} mode. Seeded DB with ${dummyUsers.users.length} Users, ${dummyStocks.stocks.length} Stocks, ${dummyBonds.bonds.length} Bonds, ${dummyFunds.funds.length} Funds.`]);
 };
 
 cleanDB()
