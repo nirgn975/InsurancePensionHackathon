@@ -8,7 +8,7 @@ router.get('/me', [auth.decodeToken(), auth.getFreshUser()], controller.me);
 
 router.route('/')
   .get(controller.get)
-  .post(controller.post);
+  .post(controller.expectedDate, controller.post);
 
 router.route('/:id')
   .get(controller.getOne)
