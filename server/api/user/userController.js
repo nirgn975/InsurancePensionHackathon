@@ -59,14 +59,12 @@ exports.post = (req, res, next) => {
   }
 
   req.body.dates = req.dates;
-  console.log('req.body', req.body);
   const newUser = new User(req.body);
 
   newUser.save((error, user) => {
     if (error) return res.json(error);
 
     const token = signToken(user._id);
-
     res.json({ token });
   });
 };
