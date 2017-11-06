@@ -58,13 +58,13 @@ const createBonds = (data) => {
 const createFunds = (data) => {
   const newFunds = dummyFunds.funds.map((fund, i) => {
     // Query.
-    User.find({id : fund.id})
+    return User.find({ id: fund.id })
       .exec()
       .then((user) => {
-          fund.user = user[0]._id;
-          return createDoc(Fund, fund);
+        fund.user = user[0]._id;
+        return createDoc(Fund, fund);
       }, (error) => {
-          console.log(error);
+        console.log(error);
       });
   });
 
