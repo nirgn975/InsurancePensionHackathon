@@ -3,9 +3,13 @@ const logger = require('./logger');
 
 const User = require('../api/user/userModel');
 const dummyUsers = require('./dummyUsers');
+
 const Graph = require('../api/graph/graphModel');
 const dummyStocks = require('./dummyStocks');
 const dummyBonds = require('./dummyBonds');
+
+const Fund = require('../api/fund/fundModel');
+const dummyFunds = require('./dummyFunds');
 
 const environment = process.env.NODE_ENV;
 
@@ -51,6 +55,28 @@ const createBonds = (data) => {
     });
 };
 
+const createFunds = (data) => {
+  /* eslint-disable array-callback-return */
+
+  const newFunds = dummyFunds.funds.map((fund, i) => {
+    User.find({ id: fund.id })
+      .exec()
+      .then((user) => {
+        fund.user = user[0]._id;
+        return createDoc(Fund, fund);
+      }, (error) => {
+        console.log(error);
+      });
+  });
+
+  /* eslint-enable array-callback-return */
+
+  return Promise.all(newFunds)
+    .then((savedFunds) => {
+      return _.merge({ funds: savedFunds }, data || {});
+    });
+};
+
 const createStocks = (data) => {
   const newStocks = dummyStocks.stocks.map((stock, i) => {
     stock.kind = 'stock';
@@ -58,12 +84,13 @@ const createStocks = (data) => {
   });
 
   return Promise.all(newStocks)
-    .then(() => [`In ${environment} mode. Seeded DB with ${dummyUsers.users.length} Users, ${dummyStocks.stocks.length} Stocks, ${dummyBonds.bonds.length} Bonds`]);
+    .then(() => [`In ${environment} mode. Seeded DB with ${dummyUsers.users.length} Users, ${dummyStocks.stocks.length} Stocks, ${dummyBonds.bonds.length} Bonds, ${dummyFunds.funds.length} Funds.`]);
 };
 
 cleanDB()
   .then(createUsers)
   .then(createBonds)
+  .then(createFunds)
   .then(createStocks)
   .then(logger.log.bind([logger]))
   .catch(logger.log.bind([logger]));
