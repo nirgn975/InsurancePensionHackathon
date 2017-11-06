@@ -63,6 +63,7 @@ exports.post = (req, res, next) => {
     if (error) return res.json(error);
 
     const token = signToken(user._id);
+
     res.json({ token });
   });
 };
