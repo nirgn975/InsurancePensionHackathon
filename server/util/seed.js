@@ -6,6 +6,8 @@ const dummyUsers = require('./dummyUsers');
 const Graph = require('../api/graph/graphModel');
 const dummyStocks = require('./dummyStocks');
 const dummyBonds = require('./dummyBonds');
+const dummyBonds = require('./dummyBonds');
+const dummyOpenPension = require('./dummyOpenPensionDB');
 
 const environment = process.env.NODE_ENV;
 
@@ -51,6 +53,17 @@ const createBonds = (data) => {
     });
 };
 
+const createOpenPension = (data) => {
+  const newOpenPension = dummyOpenPension.bonds.map((line, i) => {
+    return createDoc(openPension, line);
+  });
+
+  return Promise.all(newOpenPension)
+    .then((savedOpenPension) => {
+      return _.merge({ openPension: savedOpenPension }, data || {});
+    });
+};
+
 const createStocks = (data) => {
   const newStocks = dummyStocks.stocks.map((stock, i) => {
     stock.kind = 'stock';
@@ -63,6 +76,7 @@ const createStocks = (data) => {
 
 cleanDB()
   .then(createUsers)
+  .then(createOpenPension)
   .then(createBonds)
   .then(createStocks)
   .then(logger.log.bind([logger]))
