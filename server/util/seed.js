@@ -7,6 +7,8 @@ const dummyUsers = require('./dummyUsers');
 const Graph = require('../api/graph/graphModel');
 const dummyStocks = require('./dummyStocks');
 const dummyBonds = require('./dummyBonds');
+const dummyOpenPension = require('./dummyOpenPensionDB');
+const openPension = require('../api/openPension/openPensionModel');
 
 const Fund = require('../api/fund/fundModel');
 const dummyFunds = require('./dummyFunds');
@@ -55,6 +57,17 @@ const createBonds = (data) => {
     });
 };
 
+const createOpenPension = (data) => {
+  const newOpenPension = dummyOpenPension.openPension.map((line, i) => {
+    return createDoc(openPension, line);
+  });
+
+  return Promise.all(newOpenPension)
+    .then((savedOpenPension) => {
+      return _.merge({ openPension: savedOpenPension }, data || {});
+    });
+};
+
 const createFunds = (data) => {
   /* eslint-disable array-callback-return */
 
@@ -84,11 +97,12 @@ const createStocks = (data) => {
   });
 
   return Promise.all(newStocks)
-    .then(() => [`In ${environment} mode. Seeded DB with ${dummyUsers.users.length} Users, ${dummyStocks.stocks.length} Stocks, ${dummyBonds.bonds.length} Bonds, ${dummyFunds.funds.length} Funds.`]);
+    .then(() => [`In ${environment} mode. Seeded DB with ${dummyUsers.users.length} Users, ${dummyStocks.stocks.length} Stocks, ${dummyBonds.bonds.length} Bonds, ${dummyFunds.funds.length} Funds, ${dummyOpenPension.openPension.length} Open Pension.`]);
 };
 
 cleanDB()
   .then(createUsers)
+  .then(createOpenPension)
   .then(createBonds)
   .then(createFunds)
   .then(createStocks)
