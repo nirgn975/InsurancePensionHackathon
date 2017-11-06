@@ -1,51 +1,68 @@
 <div class="registration-wrapper" fxLayout="column" fxLayoutAlign="center none">
   <h2>ברוך הבא לעמוד רישום</h2>
-  <mat-form-field color="accent">
-    <input matInput placeholder="תעודת זהות" maxlength="9">
-  </mat-form-field>
 
-  <mat-form-field color="accent">
-    <input matInput placeholder="סיסמה" type="password">
-  </mat-form-field>
-
-  <mat-form-field color="accent">
-    <input matInput placeholder="אימות סיסמה" type="password">
-  </mat-form-field>
-
-  <div class="card-info-wrapper">
-
-    <h3>פרטי כרטיס אשראי</h3>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
 
     <mat-form-field color="accent">
-      <input matInput placeholder="מספר כרטיס">
+      <input matInput formControlName="id" (keyup)="checkError($event)" placeholder="תעודת זהות">
     </mat-form-field>
 
-    <div class="additional-info" fxLayout="row" fxLayoutAlign="space-between none">
+    <mat-form-field color="accent">
+      <input matInput formControlName="password" (keyup)=checkError($event) placeholder="סיסמה"type="password">
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+      <input matInput
+        formControlName="passwordConfirmation"
+        (keyup)=checkError($event)
+        placeholder="אימות סיסמה"
+        type="password">
+    </mat-form-field>
+
+    <div class="card-info-wrapper">
+      <h3>פרטי כרטיס אשראי</h3>
 
       <mat-form-field color="accent">
-        <input matInput placeholder="CVV" maxlength="3" (keypress)="onlyNumbers($event)">
+        <input matInput
+          formControlName="cardNumber"
+          (keyup)=checkError($event)
+          placeholder="מספר כרטיס">
       </mat-form-field>
 
-      <mat-form-field>
-        <mat-select placeholder="חודש">
-          <mat-option *ngFor="let month of months" [value]="month">
-            {{ month }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div class="additional-info" fxLayout="row" fxLayoutAlign="space-between none">
 
-      <mat-form-field>
-        <mat-select placeholder="שנה">
-          <mat-option *ngFor="let year of years" [value]="year">
-            {{ year }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+        <mat-form-field color="accent">
+          <input matInput
+            formControlName="cvv"
+            (keyup)=checkError($event)
+            placeholder="CVV">
+        </mat-form-field>
 
+        <mat-form-field>
+          <mat-select formControlName="expMonth" (blur)=checkError($event) placeholder="חודש" ngDefaultControl>
+            <mat-option
+              *ngFor="let month of months"
+              [value]="month">
+                {{ month }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select formControlName="expYear" (blur)=checkError($event) placeholder="שנה" ngDefaultControl>
+            <mat-option
+              *ngFor="let year of years"
+              [value]="year">
+              {{ year }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
     </div>
-  </div>
 
-  <button mat-raised-button color="accent">הירשם</button>
+    <button mat-raised-button color="accent">הירשם</button>
+  </form>
 
   <div class="login-wrapper">
     <a [routerLink]="['/login']">נרשמת בעבר?</a>
