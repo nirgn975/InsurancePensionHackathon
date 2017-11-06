@@ -1,6 +1,7 @@
 const Fund = require('./fundModel');
 
 exports.ownData = (req, res, next) => {
+  /* eslint max-len: [2, 120, 4] */
   const timeDiff = Math.abs(req.user.dates.registrationDate.getTime() - req.user.dates.expectedDataDate.getTime());
   const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
@@ -8,8 +9,7 @@ exports.ownData = (req, res, next) => {
     .select(['-_id', '-__v', '-kind'])
     .exec()
     .then((fundData) => {
-
-      if(fundData.length !== 0) {
+      if (fundData.length !== 0) {
         res.json({ own_data: fundData });
       }
 
