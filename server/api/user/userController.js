@@ -82,6 +82,7 @@ exports.delete = (req, res, next) => {
   });
 };
 
+<<<<<<< HEAD
 exports.expectedDate = (req, res, next) => {
   const TODAY = new Date();
   req.dates = {
@@ -91,6 +92,8 @@ exports.expectedDate = (req, res, next) => {
   next();
 };
 
+=======
+>>>>>>> master
 exports.me = (req, res) => {
   res.json(req.user.toJson());
 };
