@@ -4,5 +4,6 @@ const router = require('express').Router();
 router.use('/auth', require('./auth/authRoutes'));
 router.use('/user', require('./user/userRoutes'));
 router.use('/graph', require('./graph/graphRoutes'));
+router.use('/fund', require('./fund/fundRoutes'));
 
 module.exports = router;

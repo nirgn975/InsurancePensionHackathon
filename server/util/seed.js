@@ -8,7 +8,7 @@ const Graph = require('../api/graph/graphModel');
 const dummyStocks = require('./dummyStocks');
 const dummyBonds = require('./dummyBonds');
 
-const Fund = require('../api/fund/fundsModel');
+const Fund = require('../api/fund/fundModel');
 const dummyFunds = require('./dummyFunds');
 
 const environment = process.env.NODE_ENV;
