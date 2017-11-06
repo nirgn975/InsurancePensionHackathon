@@ -1,12 +1,12 @@
 @import 'src/assets/colors.scss';
 
 /deep/
-.mat-tab-nav-bar {
+nav {
   .mat-tab-links {
     display: flex;
     justify-content: space-between;
 
-    .mat-tab-label {
+    .mat-tab-link {
       width: 33.3%;
       height: 75px;
       color: $iph-darcqua;

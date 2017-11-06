@@ -18,6 +18,18 @@ const UserSchema = new Schema({
     type: String,
     select: false,
   },
+  cardNumber: {
+    type: String,
+  },
+  cvv: {
+    type: String,
+  },
+  expMonth: {
+    type: String,
+  },
+  expYear: {
+    type: String,
+  },
 });
 
 UserSchema.pre('save', function (next) {
