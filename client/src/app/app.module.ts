@@ -32,10 +32,12 @@ import { TabsComponent } from './tabs/tabs.component';
 import { LoginService } from './login/login.service';
 import { ChartService } from './chart/chart.service';
 import { RegistrationService } from './registration/registration.service';
+import { ProfileService } from './profile/profile.service';
 
 import { LoginEffects } from './login/login.effects';
 import { ChartEffects } from './chart/chart.effects';
 import { RegistrationEffects } from './registration/registration.effects';
+import { ProfileEffects } from './profile/profile.effects';
 
 import { ProfileGuard } from './profile/profile.guard';
 import { LoginGuard } from './login/login.guard';
@@ -63,6 +65,7 @@ import { environment } from '../environments/environment';
       LoginEffects,
       ChartEffects,
       RegistrationEffects,
+      ProfileEffects,
     ]),
     BrowserAnimationsModule,
     FlexLayoutModule,
@@ -79,6 +82,7 @@ import { environment } from '../environments/environment';
     LoginService,
     ChartService,
     RegistrationService,
+    ProfileService,
   ],
   bootstrap: [AppComponent]
 })
