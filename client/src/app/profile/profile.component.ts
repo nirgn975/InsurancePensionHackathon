@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'iph-profile',
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
   public haveData: Boolean = true;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
+
 
   ngOnInit() {
+    if(this.haveData) {
+      this.router.navigate(['profile/bond']);
+    }
   }
 
 }
