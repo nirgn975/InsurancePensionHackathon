@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit() {
-    if(this.haveData) {
+    if (this.haveData) {
       this.router.navigate(['profile/bond']);
     }
   }
