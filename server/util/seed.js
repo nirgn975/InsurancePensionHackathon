@@ -3,9 +3,13 @@ const logger = require('./logger');
 
 const User = require('../api/user/userModel');
 const dummyUsers = require('./dummyUsers');
+
 const Graph = require('../api/graph/graphModel');
 const dummyStocks = require('./dummyStocks');
 const dummyBonds = require('./dummyBonds');
+
+const Fund = require('../api/fund/fundsModel');
+const dummyFunds = require('./dummyFunds');
 
 const environment = process.env.NODE_ENV;
 
@@ -51,7 +55,21 @@ const createBonds = (data) => {
     });
 };
 
-const createStocks = (data) => {
+const createFunds = (data) => {
+  const newFunds = dummyFunds.funds.map((fund, i) => {
+    // Query.
+
+    fund.user = '_asdasdasd';
+    return createDoc(Fund, fund);
+  });
+
+  return Promise.all(newFunds)
+    .then((savedFunds) => {
+      return _.merge({ funds: savedFunds }, data || {});
+    });
+};
+
+const createStocks = () => {
   const newStocks = dummyStocks.stocks.map((stock, i) => {
     stock.kind = 'stock';
     return createDoc(Graph, stock);
@@ -64,6 +82,7 @@ const createStocks = (data) => {
 cleanDB()
   .then(createUsers)
   .then(createBonds)
+  .then(createFunds)
   .then(createStocks)
   .then(logger.log.bind([logger]))
   .catch(logger.log.bind([logger]));
