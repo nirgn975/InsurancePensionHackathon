@@ -27,7 +27,7 @@ Something about the project.
 **Client**
 
   1. Install requirements with `npm install` (located under `client` directory).
-  2. Run the server with `ng start`.
+  2. Run the server with `npm start`.
   3. Open the browser at [http://localhost:4200](http://localhost:4200).
 
 **Server**
