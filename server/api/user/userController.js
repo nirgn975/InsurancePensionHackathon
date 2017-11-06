@@ -63,11 +63,8 @@ exports.post = (req, res, next) => {
     if (error) return res.json(error);
 
     const token = signToken(user._id);
-    // const expectedDate = calcDate();
-    res.json({
-      token: token,
 
-    });
+    res.json({ token: token });
   });
 };
 
@@ -83,14 +80,6 @@ exports.delete = (req, res, next) => {
     }
   });
 };
-
-exports.expectedDate = (req, res, next) => {
-  res.dates = {
-    registrationDate: new Date(),
-    expectedDataDate: today.setDate(today.getDate() + 3),
-  }
-  console.log(res);
-}
 
 exports.me = (req, res) => {
   res.json(req.user.toJson());
