@@ -5,7 +5,6 @@ exports.ownData = (req, res, next) => {
         .select(['-_id', '-__v', '-kind'])
         .exec()
         .then((fundData) => {
-        console.log(fundData);
             res.json({own_data: fundData.length != 0});
         }, (error) => {
             res.json(error);
