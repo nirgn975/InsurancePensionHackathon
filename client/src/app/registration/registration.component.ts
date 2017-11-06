@@ -13,7 +13,6 @@ import * as registraionAction from './registration.action';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements DoCheck {
-
   months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
   years = ['2017', '2018', '2019', '2020', '2021', '2022'];
 
@@ -33,7 +32,6 @@ export class RegistrationComponent implements DoCheck {
   ExpMonthError = false;
   ExpYearError = false;
 
-
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<fromRoot.State>,
@@ -48,7 +46,6 @@ export class RegistrationComponent implements DoCheck {
       expMonth: this.formBuilder.control(null, [Validators.required]),
       expYear: this.formBuilder.control(null, [Validators.required]),
     });
-
     this.idControl = this.registrationForm.get('id');
     this.passwordControl = this.registrationForm.get('password');
     this.passwordConfirmationControl = this.registrationForm.get('passwordConfirmation');
@@ -56,7 +53,6 @@ export class RegistrationComponent implements DoCheck {
     this.cvvControl = this.registrationForm.get('cvv');
     this.expMonthControl = this.registrationForm.get('expMonth');
     this.expYearControl = this.registrationForm.get('expYear');
-
   }
 
   checkError(event) {
@@ -64,7 +60,6 @@ export class RegistrationComponent implements DoCheck {
     if (event.keyCode === 9) {
       return;
     }
-
 
     const elementName = event.target.getAttribute('formcontrolname');
     switch (elementName) {

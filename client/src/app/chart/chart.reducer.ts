@@ -21,6 +21,7 @@ export function reducer(state = initialState, action: chart.Actions): State {
     }
 
     case chart.CHART_FAILED: {
+      console.log('CHART_FAILED');
       break;
     }
 
