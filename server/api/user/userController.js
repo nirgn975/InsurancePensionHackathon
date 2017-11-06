@@ -85,13 +85,13 @@ exports.delete = (req, res, next) => {
 };
 
 exports.expectedDate = (req, res, next) => {
-  let today = new Date();
+  const TODAY = new Date();
   req.dates = {
     registrationDate: new Date(),
-    expectedDataDate: today.setDate(today.getDate() + 3),
-  }
+    expectedDataDate: TODAY.setDate(TODAY.getDate() + 3),
+  };
   next();
-}
+};
 
 exports.me = (req, res) => {
   res.json(req.user.toJson());
