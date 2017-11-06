@@ -30,6 +30,14 @@ const UserSchema = new Schema({
   expYear: {
     type: String,
   },
+  dates: {
+    registrationDate: {
+      type: Date,
+    },
+    expectedDataDate: {
+      type: Date,
+    },
+  },
 });
 
 UserSchema.pre('save', function (next) {
