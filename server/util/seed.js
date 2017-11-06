@@ -6,8 +6,8 @@ const dummyUsers = require('./dummyUsers');
 const Graph = require('../api/graph/graphModel');
 const dummyStocks = require('./dummyStocks');
 const dummyBonds = require('./dummyBonds');
-const dummyBonds = require('./dummyBonds');
 const dummyOpenPension = require('./dummyOpenPensionDB');
+const openPension = require('../api/openPension/openPensionModel');
 
 const environment = process.env.NODE_ENV;
 
