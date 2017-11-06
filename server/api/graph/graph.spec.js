@@ -15,6 +15,11 @@ describe(chalk.blue('Graph'), () => {
   const user = {
     id: '200979136',
     password: '123',
+    passwordConfirmation: '123',
+    cardNumber: '1234-1234-1234-1234',
+    cvv: '789',
+    expMonth: '4',
+    expYear: '2021',
   };
 
   before((done) => {
