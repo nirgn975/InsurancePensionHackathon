@@ -56,9 +56,10 @@ const createBonds = (data) => {
 };
 
 const createFunds = (data) => {
+  /* eslint-disable array-callback-return */
+
   const newFunds = dummyFunds.funds.map((fund, i) => {
-    // Query.
-    return User.find({ id: fund.id })
+    User.find({ id: fund.id })
       .exec()
       .then((user) => {
         fund.user = user[0]._id;
@@ -68,13 +69,15 @@ const createFunds = (data) => {
       });
   });
 
+  /* eslint-enable array-callback-return */
+
   return Promise.all(newFunds)
     .then((savedFunds) => {
       return _.merge({ funds: savedFunds }, data || {});
     });
 };
 
-const createStocks = () => {
+const createStocks = (data) => {
   const newStocks = dummyStocks.stocks.map((stock, i) => {
     stock.kind = 'stock';
     return createDoc(Graph, stock);
