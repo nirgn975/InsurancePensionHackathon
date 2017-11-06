@@ -8,6 +8,7 @@ const Graph = require('../api/graph/graphModel');
 const dummyStocks = require('./dummyStocks');
 const dummyBonds = require('./dummyBonds');
 const dummyOpenPension = require('./dummyOpenPensionDB');
+const openPension = require('../api/openPension/openPensionModel');
 
 const Fund = require('../api/fund/fundModel');
 const dummyFunds = require('./dummyFunds');
