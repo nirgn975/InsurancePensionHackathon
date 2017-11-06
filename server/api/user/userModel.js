@@ -20,22 +20,28 @@ const UserSchema = new Schema({
   },
   cardNumber: {
     type: String,
+    required: true,
   },
   cvv: {
     type: String,
+    required: true,
   },
   expMonth: {
     type: String,
+    required: true,
   },
   expYear: {
     type: String,
+    required: true,
   },
   dates: {
     registrationDate: {
       type: Date,
+      required: true,
     },
     expectedDataDate: {
       type: Date,
+      required: true,
     },
   },
 });
