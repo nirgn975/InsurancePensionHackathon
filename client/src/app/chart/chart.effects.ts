@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Effect, Actions, toPayload } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { map } from 'rxjs/operators';
 
 import { ChartService } from './chart.service';
 import * as chart from './chart.action';
@@ -21,6 +21,6 @@ export class ChartEffects {
     .map(toPayload)
     .switchMap(tabName => this.chartService.getChart(tabName)
       .map(chartData => new chart.ChartSuccessAction(chartData))
-      .catch(() => Observable.of({ type: 'CHART_FAILED' }))
+      // .catch(() => Observable.of({ type: 'CHART_FAILED' }))
     );
 }
